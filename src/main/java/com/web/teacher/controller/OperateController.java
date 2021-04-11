@@ -92,22 +92,6 @@ public class OperateController {
 		}
 		return 1;
 	}
-	/*
-	@RequestMapping("AddSC")
-	@ResponseBody
-	public Integer addSC(Operate operate) {
-		//锟秸诧拷
-		 opt.addSC(operate);
-		 return 1;
-	}
-	@RequestMapping("DeleteSC")
-	@ResponseBody
-	public Integer deleteSC(Operate operate)
-	{//取锟斤拷锟秸诧拷
-		opt.deleteSC(operate);
-		return 1;
-	}
-	*/
 	
 	@RequestMapping("daSC")
 	@ResponseBody
