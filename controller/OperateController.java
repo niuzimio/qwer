@@ -1,6 +1,4 @@
 package com.web.teacher.controller;
-
-// 测试git提交
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +25,7 @@ public class OperateController {
 
 	@RequestMapping("XSGZ")
 	@ResponseBody
-	//鏄剧ず鍏虫敞淇℃伅
+
 	public Integer XSGZ(Operate operate)
 	{
 		Integer k1=opt.searchg(operate);
@@ -36,7 +34,7 @@ public class OperateController {
 	@RequestMapping("GZ")
 	@ResponseBody
 	public Integer GZ(Operate operate)
-	{ //锟叫断癸拷注锟斤拷锟饺伙拷锟街达拷锟�
+	{
 		Integer k1=opt.searchg(operate);
 		if(k1==0)
 		{
