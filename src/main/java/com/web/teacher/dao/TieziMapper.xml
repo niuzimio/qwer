@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.teacher.dao.ITieziDao">
+	 <insert id="add" parameterType="Tiezi">
+		insert into tinf(title,uname,content,section,modifyDate,lnum,jsign)values(#{title},#{uname},#{content},#{section},#{modifyDate},#{lnum},#{jsign})
+	</insert>
+	
+    <delete id="delete">
+		delete from tinf where tid=#{obj}
+	</delete>
+	
+    <update id="update" parameterType="Tiezi">
+		update tinf set content=#{content} where tid=#{tid}
+	</update>
+	
+	 <update id="updatelnum" parameterType="Tiezi">
+	    update tinf set lnum=#{lnum} where tid=#{tid}
+	 </update>
+	  <update id="updateJsign" parameterType="Tiezi">
+	    update tinf set jsign=#{jsign} where tid=#{tid}
+	 </update>
+    <select id="search" resultType="Tiezi">
+		select tid,title,uname,content,section,modifyDate,lnum,jsign from tinf
+	</select>
+	<select id="searchMytiezi" resultType="Tiezi">
+		select tid,title,uname,content,section,modifyDate,lnum,jsign from tinf where uname=#{uname}
+	</select>
+	
+	<select id="searchByS" resultType="Tiezi">
+		select tid,title,uname,content,section,modifyDate,lnum,jsign from tinf where tid IN (SELECT obj FROM operate WHERE uid =#{uid} AND tsign=1)
+	</select>
+	
+	<select id="searchtbyuid" resultType="Tiezi">
+		select tid,title,uname,content,section,modifyDate,lnum,jsign from tinf where uname IN (SELECT uname FROM pinf WHERE uid =#{uid} )
+	</select>
+	
+	<select id="searchByRe" resultType="Tiezi">
+		SELECT tid,title,uname,content,section,modifyDate,lnum,jsign FROM tinf WHERE uname IN (SELECT uname FROM pinf WHERE uid IN (SELECT obj FROM operate WHERE uid =#{uid} AND tsign=0))
+	</select>
+	
+    <select id="searchBysection" resultType="Tiezi">
+		SELECT tid,title,uname,content,section,modifyDate,lnum,jsign FROM tinf WHERE section=#{section} order by modifyDate DESC
+	</select>
+	
+	<select id="searchJinghua" resultType="Tiezi">
+		SELECT tid,title,uname,content,section,modifyDate,lnum,jsign FROM tinf WHERE jsign = 1 
+	</select>
+	
+	<select id="getTieziByTid" resultType="Tiezi">
+		SELECT tid,title,uname,content,section,modifyDate,lnum,jsign FROM tinf WHERE tid=#{obj}
+	</select>
+	<select id="getTieziTid" resultType="Tiezi">
+		SELECT tid,title,uname,content,section,modifyDate,lnum,jsign FROM tinf WHERE uname=(SELECT uname FROM tinf WHERE tid=#{tid})
+	</select>
+    <select id="searchAll" resultType="Tiezi" parameterType="Tiezi">
+		select tid,title,uname,content,section,modifyDate,lnum,jsign from tinf
+		<where>
+			<if test="title!=null">
+			 	and title like #{title}
+			</if>
+			<if test="uname!=null">
+			 	and uname like #{uname}
+			</if>
+			<if test="jsign!=null">
+			 	and jsign=#{jsign}
+			</if>
+			
+		</where>
+		order by modifyDate DESC
+	</select>
+	
+	<select id="searchRe" resultType="Tiezi" parameterType="Tiezi">
+		select tid,title,uname,content,section,modifyDate,lnum,jsign from tinf
+		<where>
+			<if test="title!=null">
+			 	and title like #{title}
+			</if>
+		</where>
+		order by lnum DESC
+	</select>
+</mapper>
