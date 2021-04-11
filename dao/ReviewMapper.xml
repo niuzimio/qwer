@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.teacher.dao.ReviewDao">
+	 <insert id="review" parameterType="Review">
+	 insert into contents(tid,uname,hcontent,lastDate)values(#{tid},#{uname},#{hcontent},#{lastDate}) 
+	 </insert>
+	 
+	 <select id="searchreview" resultType="Review" parameterType="Review">
+	    select  cid,uname,hcontent,lastDate from contents where tid=#{tid}   
+	 </select>
+	 <delete id="delete">
+		delete from contents where cid=#{cid}
+	</delete>
+</mapper>
