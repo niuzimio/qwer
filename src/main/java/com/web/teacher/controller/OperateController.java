@@ -64,7 +64,7 @@ public class OperateController {
 	@RequestMapping("daGZ")
 	@ResponseBody
 	public Integer daGZ(Operate operate)
-	{ //锟叫断癸拷注锟斤拷锟饺伙拷锟街达拷锟�
+	{ 
 		Integer k1=opt.searctpo(operate);
 		if(k1==0)
 		{
