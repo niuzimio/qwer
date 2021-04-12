@@ -13,9 +13,7 @@ public class AnnounceServiceImpl implements AnnounceService {
 	@Autowired
 	   private AnnounceDao announceDaoDao;
 		public void add(Announce announce) {
-			announce.setAcontent(announce.getAcontent());
-			announce.setAnume(announce.getAnume());
-			announce.setAtime(announce.getAtime());
+
 			announceDaoDao.add(announce);
 		}
         public void delete(Integer aid)

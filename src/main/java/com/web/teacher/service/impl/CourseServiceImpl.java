@@ -24,14 +24,6 @@ public class CourseServiceImpl implements CourseService{
 		   return c;
 	   }
 		public void add(Course course) {
-			course.setCid(course.getCid());
-			course.setCname(course.getCname());
-			course.setCyear(course.getCyear());
-			course.setCteam(course.getCteam());
-			course.setTid(course.getTid());
-			course.setCredit(course.getCredit());
-			course.setTime(course.getTime());
-			course.setClassroom(course.getClassroom());
 			courseDao.add(course);
 		}
         public void delete(Integer cid)

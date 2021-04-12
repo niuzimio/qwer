@@ -14,13 +14,13 @@ public class AdminController {
     @Autowired
     @Qualifier("adminService")
     private AdminService adminService;
-    @Autowired
+
     @RequestMapping(value = "login", produces = "application/json; charset=utf-8")
     @ResponseBody
     public Admins login(Admins admins, HttpSession session) {
         Admins a = adminService.getAdminByAnum(admins);
         if (a != null) {
-            if (a.getPwd() != null && a.getPwd().equals(admins.getPwd())) {
+            if (admins.getPwd() != null && a.getPwd().equals(admins.getPwd())) {
                 session.setAttribute("loginUser", a);
                 a.setPwd(null);
                 return a;

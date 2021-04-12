@@ -71,11 +71,7 @@ public class UserServiceImpl implements IUserService{
         {
         	userDao.updatesnum(user);
         }
-		
-		public List<Announce> queryAll() {
-			
-			return userDao.queryAll();
-		}
+
 		public List<User> queryAll(User user) {
 			System.out.println(">>>>==="+user);
 			if(user.getUkey()!=null && user.getUkey()==-1) {
