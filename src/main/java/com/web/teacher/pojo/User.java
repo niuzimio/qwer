@@ -7,8 +7,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class User {
-		public static final int STATUS_DISABLE = 0;		//绂佺敤鐘舵��
-		public static final int STATUS_ABLE = 1;		//姝ｅ父鐘舵��
+		public static final int STATUS_DISABLE = 0;
+		public static final int STATUS_ABLE = 1;
 		private int uid;  //涓婚敭  鐢ㄦ埛缂栧彿
 		private String uname; //鐢ㄦ埛鍚�
 		private String password; //瀵嗙爜

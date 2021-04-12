@@ -1,6 +1,6 @@
 package com.web.teacher.pojo;
 
-public class Admin {
+public class Admins {
 	private int num;
 	private String pwd;
 	public int getNum() {
