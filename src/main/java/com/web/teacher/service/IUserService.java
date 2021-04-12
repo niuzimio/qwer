@@ -2,6 +2,7 @@ package com.web.teacher.service;
 
 import java.util.List;
 
+import com.web.teacher.pojo.Announce;
 import com.web.teacher.pojo.User;
 
 public interface IUserService {
@@ -18,7 +19,7 @@ public interface IUserService {
 	public void updatetnum(User user);
 	public void updatefnum(User user);
 	public void updatesnum(User user);
-	public List<User> queryAll();
+	public List<Announce> queryAll();
 	public List<User> queryAll(User user);
 	public List<User> queryAll2(User user);
 	public List<User> searchFans(User user);

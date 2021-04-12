@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.teacher.dao.AnnounceDao">
+
+	<delete id="delete" parameterType="Announce">
+		DELETE FROM announce WHERE aid=#{aid}
+	</delete>
+	
+
+	<insert id="add" parameterType="Announce">
+		INSERT INTO announce(aid,anum,acontent,atime)VALUES(#{aid},#{anum},#{acontent},#{atime})
+	</insert>
+	
+	<update id="update" parameterType="Announce">
+		update announce set acontent=#{acontent},atime=#{atime}where aid=#{aid}
+	</update>
+
+	<select id="queryAll" resultType="Announce">
+		select aid,anum,acontent,atime from announce
+	</select>
+
+	<select id="getAnnounceByAid" resultType="Announce">
+		select aid,anum,acontent,atime from announce where aid=#{aid}
+	</select>
+
+</mapper>

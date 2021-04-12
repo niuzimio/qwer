@@ -2,6 +2,7 @@ package com.web.teacher.service.impl;
 
 import java.util.List;
 
+import com.web.teacher.pojo.Announce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -71,7 +72,7 @@ public class UserServiceImpl implements IUserService{
         	userDao.updatesnum(user);
         }
 		
-		public List<User> queryAll() {
+		public List<Announce> queryAll() {
 			
 			return userDao.queryAll();
 		}
