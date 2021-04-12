@@ -19,7 +19,6 @@ public class UserController {
 	@Autowired
 	@Qualifier("userService")
 	private IUserService userService;
-	@Autowired
 	@RequestMapping(value = "login", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public User login(User user, HttpSession session) {

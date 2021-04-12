@@ -1,6 +1,5 @@
 package com.web.teacher.pojo;
 
-import java.security.Timestamp;
 import java.util.Date;
 
 public class Announce {
@@ -30,7 +29,7 @@ public class Announce {
 	public Date getAtime() {
 		return atime;
 	}
-	public void setAtime(Timestamp atime) {
+	public void setAtime(Date atime) {
 		this.atime = atime;
 	}
 	

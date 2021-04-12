@@ -35,7 +35,8 @@ public class AnnounceServiceImpl implements AnnounceService {
 		}
 
 	public Announce getAnnounceByAid(Integer aid) {
-		return announceDaoDao.getAnnounceByAid(aid);
+
+			return announceDaoDao.getAnnounceByAid(aid);
 	}
 
 

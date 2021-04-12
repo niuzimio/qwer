@@ -1,7 +1,7 @@
 package com.web.teacher.controller;
-import java.util.Date;
-import com.web.teacher.pojo.Announce;
-import com.web.teacher.service.AnnounceService;
+
+import com.web.teacher.pojo.Course;
+import com.web.teacher.service.CourseService;
 import com.web.teacher.util.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,23 +9,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.util.List;
 
 @Controller
-public class AnnounceController {
+public class CourseController {
 	@Autowired
-	@Qualifier("announceService")
-	private AnnounceService announceService;
-	@RequestMapping("announceAdd")
+	@Qualifier("courseService")
+	private CourseService courseService;
+	@RequestMapping("courseAdd")
 	@ResponseBody
-	public Integer add(Announce announce) {
-	    int length =announce.getAcontent().length();
-	    if(length<=200)
+	public Integer add(Course course) {
+		Course c = courseService.getCourseByCid(course.getCid());
+	    if(c==null)
 	    {
-			Date date = new Date();
-			announce.setAtime(date);
-			announceService.add(announce);
+			courseService.add(course);
 			return 1;
 		}
 	    else
@@ -37,28 +34,28 @@ public class AnnounceController {
 
 	@RequestMapping("queryAll")
 	public String queryAll(String pageNo,ModelMap model) {
-		List<Announce> list = announceService.queryAll();
+		List<Course> list = courseService.queryAll();
 
-		PageBean<Announce> pageBean = new PageBean<Announce>();
+		PageBean<Course> pageBean = new PageBean<Course>();
 		pageBean.page(list, pageNo);
 		model.put("pageBean", pageBean);
 
-		return "announcelist";
+		return "courselist";
 	}
 
 
 	@RequestMapping("delete")
 	@ResponseBody
-	public Integer delete(Integer aid) {
-		announceService.delete(aid);
+	public Integer delete(Integer cid) {
+		courseService.delete(cid);
 		return 1;
 	}
 
 	@RequestMapping("update")
 	@ResponseBody
-	public Announce update(Announce announce) {
-		announceService.update(announce);
-		Announce a= announceService.getAnnounceByAid(announce.getAid());
+	public Course update(Course course) {
+		courseService.update(course);
+		Course a= courseService.getCourseByCid(course.getCid());
 		return a;
 	}
 
