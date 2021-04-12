@@ -44,9 +44,9 @@ public class AnnounceController {
 
 	@RequestMapping("queryAll")
 	public String queryAll(String pageNo, Announce announce, ModelMap model) {
-		List<User> list = announceService.queryAll(announce);
+		List<Announce> list = announceService.queryAll(announce);
 
-		PageBean<User> pageBean = new PageBean<User>();
+		PageBean<Announce> pageBean = new PageBean<Announce>();
 		pageBean.page(list, pageNo);
 		model.put("pageBean", pageBean);
 
