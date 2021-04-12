@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.web.teacher.dao.IUserDao;
-import com.web.teacher.pojo.Operate;
 import com.web.teacher.pojo.User;
 import com.web.teacher.service.IUserService;
 @Service("userService")
@@ -90,16 +89,6 @@ public class UserServiceImpl implements IUserService{
 				user.setUname("%"+user.getUname()+"%");
 			}
 			return userDao.searchUser(user);
-		}
-		
-		
-		
-		
-		
-		
-		public List<User> searchAttention(Operate operate) {
-			
-			return userDao.searchAttention(operate);
 		}
 		public List<User> searchFans(User user) {
 			

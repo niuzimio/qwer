@@ -10,10 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.web.teacher.pojo.Operate;
 import com.web.teacher.pojo.User;
-import com.web.teacher.service.IOperateService;
 import com.web.teacher.service.IUserService;
 import com.web.teacher.util.PageBean;
 
@@ -23,7 +20,6 @@ public class UserController {
 	@Qualifier("userService")
 	private IUserService userService;
 	@Autowired
-	private IOperateService  opt;
 	@RequestMapping(value = "login", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public User login(User user, HttpSession session) {
@@ -190,13 +186,6 @@ public class UserController {
 		User user = userService.getUserByUid(uid);
 		return user;
 	}
-	@RequestMapping("searchAttention")
-	@ResponseBody
-	//我关注的人
-	public List<User> searchAttention(Operate operate, ModelMap model) {
-		
-		return userService.searchAttention(operate);
-	}
 	@RequestMapping("searchFans")
 	@ResponseBody
 	//我的粉丝
@@ -204,12 +193,7 @@ public class UserController {
 		
 		return userService.searchFans(user);
 	}
-	@RequestMapping("searchUBytid")
 	@ResponseBody
-	public User Searchuid(Operate operate) {
-		User user = userService.getUserByUid(opt.getGZuid(operate));
-		return user;
-	}
 	@RequestMapping("updateflag")
 	public String updateflag(Integer uid) {
 		User user = userService.getUserByUid(uid);

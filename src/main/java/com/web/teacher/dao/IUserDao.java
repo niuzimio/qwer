@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.web.teacher.pojo.Operate;
 import com.web.teacher.pojo.User;
 
 @Repository("userDao")
@@ -26,7 +25,6 @@ public void delete(String uname);
 public List<User> queryAll();
 public List<User> searchUser2(User user);
 public List<User> searchUser(User user);
-public List<User> searchAttention(Operate operate);
 public List<User> searchFans(User user);
 /**
  * 用户修改

@@ -2,7 +2,6 @@ package com.web.teacher.service;
 
 import java.util.List;
 
-import com.web.teacher.pojo.Operate;
 import com.web.teacher.pojo.User;
 
 public interface IUserService {
@@ -22,7 +21,6 @@ public interface IUserService {
 	public List<User> queryAll();
 	public List<User> queryAll(User user);
 	public List<User> queryAll2(User user);
-	public List<User> searchAttention(Operate operate);
 	public List<User> searchFans(User user);
 }
 
