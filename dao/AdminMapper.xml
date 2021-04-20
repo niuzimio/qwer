@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.teacher.dao.AdminDao">
+	<select id="getAdminByAnum" resultType="Admins" parameterType="Admins">
+		SELECT anum,apwd FROM admin WHERE anum=#{anum}
+	</select>
+	<update id="updatepwd" parameterType="Admins">
+		update admin set apwd=#{apwd} where anum=#{anum}
+	</update>
+</mapper>

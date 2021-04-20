@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.web.teacher.pojo.User;
 
 public class AuthorFilter implements Filter{
 
@@ -31,17 +30,7 @@ public class AuthorFilter implements Filter{
 			return;
 		}
 
-		
-
-		HttpSession session = req.getSession(false);
-		if (session != null) {
-		User user = (User) session.getAttribute("loginUser");
-			if (user != null) {
-				// 放行
-				chain.doFilter(request, response);
-				return;
-			}
-		}
+	
 		
 		//不合法的请求
 		HttpServletResponse resp = (HttpServletResponse)response;

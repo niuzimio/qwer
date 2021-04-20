@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.teacher.dao.ScoreDao">
+	<select id="getByCid" resultType="Score" parameterType="Score">
+		select snum,sname,cid,sco from score where cid=#{cid}
+	</select>
+	<select id="getBySnum" resultType="Score" parameterType="Score">
+		select snum,sname,cid,sco from score where snum=#{snum}
+	</select>
+	<select id="queryAll" resultType="Score" >
+		select * from score
+	</select>
+	<insert id="add" parameterType="Score">
+		INSERT INTO score(snum,sname,cid,sco)
+		VALUES(#{snum},#{sname},#{cid},#{sco})
+	</insert>
+	<delete id="delete" parameterType="Score">
+		DELETE FROM score WHERE snum=#{snum}
+	</delete>
+	<update id="update" parameterType="Score">
+		update score set sname=#{sname},cid=#{cid},
+			sco=#{sco} where snum=#{snum}
+	</update>
+</mapper>
